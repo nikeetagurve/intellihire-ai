@@ -83,8 +83,7 @@ export default function ResumeAnalyzer() {
         const page = await pdf.getPage(pageNumber);
         const textContent = await page.getTextContent();
 
-        const pageText = textContent.items
-          .map((item) => {
+        const pageText = textContent.items.map((item: { str?: string }) => {
             if ("str" in item) {
               return item.str;
             }
